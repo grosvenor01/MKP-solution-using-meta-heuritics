@@ -3,7 +3,7 @@ import java.util.Random;
 public class solution {
     ArrayList<Integer> objects = new ArrayList<Integer>();
     float fitness_val;
-
+    
     public solution(){
         objects = new ArrayList<Integer>();
         fitness_val = 0;
@@ -30,6 +30,19 @@ public class solution {
             }
         }  
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+    
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+    
+        solution other = (solution) obj;
+        return objects.equals(other.objects);
+    }
     public boolean isValidSolution(ArrayList<knapsack> knapsacks, ArrayList<obj> objects_arr) {
         int[] knapsackWeights = new int[knapsacks.size()];
         for (int i = 0; i < objects_arr.size(); i++) {
@@ -38,16 +51,16 @@ public class solution {
                 knapsackWeights[knapsackIndex] += objects_arr.get(i).weight;
             }
         }
-
         for (int i = 0; i < knapsacks.size(); i++) {
             if (knapsackWeights[i] > knapsacks.get(i).max_weight) {
                 return false; // Solution is invalid
             }
         }
-        for (int i = 0; i < knapsacks.size(); i++) {
+        /*for (int i = 0; i < knapsacks.size(); i++) {
             System.out.print(knapsackWeights[i]+" ");
         }
-        System.out.println();
+        System.out.println();*/
+        
         return true; // Solution is valid
     }
     public void set_fitness(ArrayList<obj> objects_arr){
