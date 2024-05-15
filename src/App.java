@@ -1,6 +1,8 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        instance cas_0 = new instance();
+        graphic graphics = new graphic();
+        graphics.initialize();
+        /*instance cas_0 = new instance();
         cas_0.generate_sol();
         long startTime = System.currentTimeMillis();
         solution BSO_solve = cas_0.BSO_solve(10);
@@ -42,5 +44,14 @@ public class App {
         System.out.println("BSO avec 1/2");
         BSO_solve.display();
         System.out.println(executionTime+"ms");
+
+        
+        System.out.println("GA");
+        startTime = System.currentTimeMillis();
+        solution GA_solve = cas_0.GA_solve();
+        endTime = System.currentTimeMillis();
+        executionTime = endTime - startTime;
+        GA_solve.display();
+        System.out.println(executionTime+"ms");*/
     }
 }
